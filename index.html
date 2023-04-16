@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="description" content="Scene flow estimation from point clouds based on pure correspondence learning and direct refinement optimization.">
-  <meta name="keywords" content="SCOOP, Scene Flow, Point Clouds, Self-Supervised, Correspondence, Optimization">
+  <meta name="keywords" content="SCOOP, Scene Flow, Point Clouds, Self-Supervised, Correspondence, Optimization, CVPR 2023">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="icon" href="./assets/icon_wo_bg.png">
@@ -42,7 +42,8 @@
     <div class="container is-max-desktop">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">SCOOP: Self-Supervised Correspondence and Optimization-Based Scene Flow</h1>
+          <h1 class="title is-2 publication-title">SCOOP: Self-Supervised Correspondence and Optimization-Based Scene Flow</h1>
+          <h2 class="title is-3 publication-conference">CVPR 2023</h2>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <div class="author-portrait">
@@ -159,7 +160,7 @@
             Scene flow estimation is a long-standing problem in computer vision, where the goal is to find the 3D motion
             of a scene from its consecutive observations. Recently, there have been efforts to compute the scene flow
             from 3D point clouds. A common approach is to train a regression model that consumes source and target point
-            clouds and outputs the per-point translation vectors. An alternative is to learn point matches between the
+            clouds and outputs the per-point translation vector. An alternative is to learn point matches between the
             point clouds concurrently with regressing a refinement of the initial correspondence flow. In both cases,
             the learning task is very challenging since the flow regression is done in the free 3D space, and a typical
             solution is to resort to a large annotated synthetic dataset.
@@ -296,11 +297,11 @@
 <section class="section">
   <div class="container is-max-desktop content">
     <h2 class="title is-3">Citation</h2>
-    <pre><code>@article{lang2022scoop,
+    <pre><code>@InProceedings{lang2023scoop,
   author = {Lang, Itai and Aiger, Dror and Cole, Forrester and Avidan, Shai and Rubinstein, Michael},
   title = {{SCOOP: Self-Supervised Correspondence and Optimization-Based Scene Flow}},
-  journal = {arXiv preprint arXiv:2211.14020},
-  year = {2022}
+  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  year = {2023}
 }
     </code></pre>
   </div>
