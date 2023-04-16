@@ -2,12 +2,12 @@
 Created by [Itai Lang](https://scholar.google.com/citations?user=q0bBhtsAAAAJ&hl=en/)<sup>1,2</sup>, [Dror Aiger](https://research.google/people/DrorAiger/)<sup>2</sup>, [Forrester Cole](http://people.csail.mit.edu/fcole/)<sup>2</sup>, [Shai Avidan](http://www.eng.tau.ac.il/~avidan/)<sup>1</sup>, and [Michael Rubinstein](http://people.csail.mit.edu/mrub/)<sup>2</sup>. <br>
 <sup>1</sup>Tel Aviv University&nbsp;&nbsp;&nbsp;<sup>2</sup>Google Research
 
-![scoop_result](./doc/scoop_result.png)
+![scoop_result](./doc/scoop_result.gif)
 
 ## Introduction
 Scene flow estimation is a long-standing problem in computer vision, where the goal is to find the 3D motion of a scene from its consecutive observations.
 Recently, there have been efforts to compute the scene flow from 3D point clouds.
-A common approach is to train a regression model that consumes source and target point clouds and outputs the per-point translation vectors.
+A common approach is to train a regression model that consumes source and target point clouds and outputs the per-point translation vector.
 An alternative is to learn point matches between the point clouds concurrently with regressing a refinement of the initial correspondence flow.
 In both cases, the learning task is very challenging since the flow regression is done in the free 3D space, and a typical solution is to resort to a large annotated synthetic dataset.
 
@@ -19,11 +19,11 @@ Experiments on widespread datasets demonstrate the performance gains achieved by
 ## Citation
 If you find our work useful in your research, please consider citing:
 
-	@article{lang2022scoop,
+	@InProceedings{lang2023scoop,
 	  author = {Lang, Itai and Aiger, Dror and Cole, Forrester and Avidan, Shai and Rubinstein, Michael},
 	  title = {{SCOOP: Self-Supervised Correspondence and Optimization-Based Scene Flow}},
-	  journal = {arXiv preprint arXiv:2211.14020},
-	  year = {2022}
+	  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+	  year = {2023}
 	}
 
 ## Installation
@@ -89,25 +89,39 @@ To train a model on 1,800 examples from the train set of FT3D<sub>o</sub>, run t
 sh train_on_ft3d_o.sh
 ```
 
-Evaluate this model on KITTI<sub>o</sub> using the following command:
+Evaluate this model on KITTI<sub>o</sub> with 2,048 point per point cloud using the following command:
 ```bash
 sh evaluate_on_kitti_o.sh
 ```
 
 The results will be saved to the file `./experiments/ft3d_o_1800_examples/log_evaluation_kitti_o.txt`.
 
+Evaluate this model on KITTI<sub>o</sub> with all the points in the point clouds using the following command:
+```bash
+sh evaluate_on_kitti_o_all_point.sh
+```
+
+The results will be saved to the file `./experiments/ft3d_o_1800_examples/log_evaluation_kitti_o_all_points.txt`.
+
 #### KITTI<sub>v</sub> / KITTI<sub>t</sub>
-To train a model on the 100 examples of KIITI<sub>v</sub>, run the following command:
+To train a model on the 100 examples of KITTI<sub>v</sub>, run the following command:
 ```bash
 sh train_on_kitti_v.sh
 ```
 
-Evaluate this model on KITTI<sub>t</sub> using the following command:
+Evaluate this model on KITTI<sub>t</sub> with 2,048 point per point cloud using the following command:
 ```bash
 sh evaluate_on_kitti_t.sh
 ```
 
 The results will be saved to the file `./experiments/kitti_v_100_examples/log_evaluation_kitti_t.txt`.
+
+Evaluate this model on KITTI<sub>t</sub> with all the points in the point clouds using the following command:
+```bash
+sh evaluate_on_kitti_t_all_points.sh
+```
+
+The results will be saved to the file `./experiments/kitti_v_100_examples/log_evaluation_kitti_t_all_points.txt`.
 
 #### FT3D<sub>s</sub> / KITTI<sub>s</sub>, FT3D<sub>s</sub> / FT3D<sub>s</sub>  
 To train a model on 1,800 examples from the train set FT3D<sub>s</sub>, run the following command:
@@ -115,17 +129,19 @@ To train a model on 1,800 examples from the train set FT3D<sub>s</sub>, run the 
 sh train_on_ft3d_s.sh
 ```
 
-Evaluate this model on KITTI<sub>s</sub> using the following command:
+Evaluate this model on KITTI<sub>s</sub> with 8,192 point per point cloud using the following command:
 ```bash
 sh evaluate_on_kitti_s.sh
 ```
 
 The results will be saved to the file `./experiments/ft3d_s_1800_examples/log_evaluation_kitti_s.txt`.
 
-This model can also be evaluated on the test set of FT3D<sub>s</sub> using the following command:
+Evaluate this model on the test set of FT3D<sub>s</sub> with 8,192 point per point cloud using the following command:
 ```bash
 sh evaluate_on_ft3d_s.sh
 ```
+
+The results will be saved to the file `./experiments/ft3d_s_1800_examples/log_evaluation_ft3d_s.txt`.
 
 #### Visualization
 First, save results for visualization by adding the flag `--save_pc_res 1` when running the evaluation script. For example, the [script for evaluating on KITTI<sub>t</sub>](./scripts/evaluate_on_kitti_t.sh).
