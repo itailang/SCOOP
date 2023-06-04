@@ -8,5 +8,6 @@ If you find our work useful in your research, please consider citing:
 	  author = {Lang, Itai and Aiger, Dror and Cole, Forrester and Avidan, Shai and Rubinstein, Michael},
 	  title = {{SCOOP: Self-Supervised Correspondence and Optimization-Based Scene Flow}},
 	  booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+	  pages = {5281--5290},
 	  year = {2023}
 	}
