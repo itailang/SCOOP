@@ -94,7 +94,7 @@
             <div class="publication-links">
               <!-- Paper Link -->
               <span class="link-block">
-                <a href="https://arxiv.org/pdf/2211.14020.pdf"
+                <a href="https://openaccess.thecvf.com/content/CVPR2023/papers/Lang_SCOOP_Self-Supervised_Correspondence_and_Optimization-Based_Scene_Flow_CVPR_2023_paper.pdf"
                    class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
@@ -110,6 +110,16 @@
                       <i class="ai ai-arxiv"></i>
                   </span>
                   <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Video Link -->
+              <span class="link-block">
+                <a href="https://www.youtube.com/watch?v=b8MVWGU7V4E"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
                 </a>
               </span>
               <!-- Code Link -->
@@ -136,9 +146,9 @@
         <div class="columns is-centered has-text-centered">
           <div class="column is-four-fifths">
             <h2 class="subtitle has-text-justified">
-              SCOOP is a self-supervised scene flow estimation method for 3D point clouds. It is based on point
-              correspondence learning and direct refinement optimization, which enable it to use a fraction of the
-              training data and achieve state-of-the-art results.
+              SCOOP is a self-supervised scene flow estimation method for 3D point clouds. It is based on pure
+              correspondence learning and direct refinement optimization, which enable it to use a fraction
+              of the training data while achieving state-of-the-art results.
             </h2>
             <video id="teaser" autoplay controls muted loop playsinline height="100%">
               <source src="./assets/strict_acc_vs_train_set_size.mp4" type="video/mp4">
@@ -184,8 +194,34 @@
       </div>
     </div>
 
+    <!-- Presentation Video -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="presentation-video">
+          <iframe src="https://www.youtube.com/embed/b8MVWGU7V4E?rel=0&amp;showinfo=0"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Key Idea -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Key Idea</h2>
+        <div class="content has-text-justified">
+          <p>
+            Previous methods regress the entire flow in the ambient 3D space, jointly learn correspondence and refinement,
+            or optimize the complete flow from scratch separately for each scene. Instead, we replace these challenging
+            problems with two simpler ones: training a correspondence model focused only on learning point
+            feature representation without any flow regression, and directly optimizing a residual flow refinement at
+            the run-time.
+          </p>
+        </div>
         <div class="content has-text-centered">
           <img id="others" width="100%" src="./assets/approach_others.png" alt="Others">
         </div>
@@ -227,7 +263,7 @@
           <p>
             Our self-supervised losses require that each translated source point has a nearby target point and that
             neighboring source points have similar flow vectors. These two losses result in a coherent flow field that
-            warps the source point cloud close to the implicit surface of the target point cloud.
+            warps the source point cloud close to the underlying surface of the target point cloud.
           </p>
         </div>
         <div class="content has-text-centered">
@@ -244,14 +280,25 @@
     <div class="columns is-centered">
       <div class="column is-full-width">
         <h2 class="title is-3">Results</h2>
-
         <div class="content has-text-justified">
           <p>
-            SCOOP estimates the scene flow correctly in various challenging cases.
+            Compared to the popular previous method
+            <a href="https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123730528.pdf">FLOT</a>, SCOOP better
+            preserves the structure of the source point cloud and accurately computes its flow.
           </p>
         </div>
+        <div class="comparison">
+          <img src="./assets/comparison_f_s.png" alt="Comparison" >
+          <img src="./assets/comparison_s_f.png" alt="Comparison" class="swap" >
+        </div>
+
         <div class="content has-text-justified">
+          <br>
+          <br>
           <p>
+            SCOOP estimates the scene flow correctly in various challenging cases:
+            <br>
+            <br>
             Varied point cloud density (cars).
           </p>
         </div>
@@ -276,19 +323,6 @@
         <div class="content has-text-centered">
           <img id="results geometry" width="100%" src="./assets/results_different.png" alt="Different">
         </div>
-
-        <div class="content has-text-justified">
-          <br>
-          <p>
-            Compared to the popular previous method
-            <a href="https://www.ecva.net/papers/eccv_2020/papers_ECCV/papers/123730528.pdf">FLOT</a>, SCOOP better
-            preserves the structure of the source point cloud and accurately computes its flow.
-          </p>
-        </div>
-        <div class="comparison">
-          <img src="./assets/comparison_f_s.png" alt="Comparison" >
-          <img src="./assets/comparison_s_f.png" alt="Comparison" class="swap" >
-        </div>
       </div>
     </div>
   </div>
@@ -301,6 +335,7 @@
   author = {Lang, Itai and Aiger, Dror and Cole, Forrester and Avidan, Shai and Rubinstein, Michael},
   title = {{SCOOP: Self-Supervised Correspondence and Optimization-Based Scene Flow}},
   booktitle = {Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR)},
+  pages = {5281--5290},
   year = {2023}
 }
     </code></pre>
