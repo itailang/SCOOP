@@ -176,11 +176,6 @@
             solution is to resort to a large annotated synthetic dataset.
           </p>
           <p>
-            Another approach is an optimization-only flow computation. In this case, no training data is involved, and
-            the flow is optimized for each scene separately. This dedicated optimization is prone to local minima and
-            might lead to a sub-optimal solution.
-          </p>
-          <p>
             We introduce SCOOP, a new method for scene flow estimation that can be learned on a small amount of data
             without employing ground-truth flow supervision. In contrast to previous work, we train a pure
             correspondence model focused on learning point feature representation and initialize the flow as the
