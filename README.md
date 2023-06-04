@@ -1,10 +1,12 @@
 # SCOOP: Self-Supervised Correspondence and Optimization-Based Scene Flow
+[[Project Page]](https://itailang.github.io/SCOOP/) [[Paper]](https://openaccess.thecvf.com/content/CVPR2023/html/Lang_SCOOP_Self-Supervised_Correspondence_and_Optimization-Based_Scene_Flow_CVPR_2023_paper.html) [[Video]](https://www.youtube.com/watch?v=b8MVWGU7V4E) [[Slides]](./doc/slides.pdf) [[Poster]](./doc/poster.png)
+
 Created by [Itai Lang](https://scholar.google.com/citations?user=q0bBhtsAAAAJ&hl=en/)<sup>1,2</sup>, [Dror Aiger](https://research.google/people/DrorAiger/)<sup>2</sup>, [Forrester Cole](http://people.csail.mit.edu/fcole/)<sup>2</sup>, [Shai Avidan](http://www.eng.tau.ac.il/~avidan/)<sup>1</sup>, and [Michael Rubinstein](http://people.csail.mit.edu/mrub/)<sup>2</sup>. <br>
 <sup>1</sup>Tel Aviv University&nbsp;&nbsp;&nbsp;<sup>2</sup>Google Research
 
 ![scoop_result](./doc/scoop_result.gif)
 
-## Introduction
+## Abstract
 Scene flow estimation is a long-standing problem in computer vision, where the goal is to find the 3D motion of a scene from its consecutive observations.
 Recently, there have been efforts to compute the scene flow from 3D point clouds.
 A common approach is to train a regression model that consumes source and target point clouds and outputs the per-point translation vector.
